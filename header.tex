@@ -18,7 +18,8 @@
 \usepackage{cleveref}  % referencing our own stuff
 \usepackage[toc,page]{appendix}
 \usepackage{register}  % register diagrams
-\setlength{\regWidth}{\textwidth}
+% this is actually too wide, but it looks cleaner for having a lot of single bit fields
+\setlength{\regWidth}{1.1\textwidth}
 \usepackage{ifthen}  % conditionals for cooler commands
 \usepackage{xspace}  % proper space handling for normal text commands
 

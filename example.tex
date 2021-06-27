@@ -1,0 +1,46 @@
+\chapter{Example}
+
+Just a short example of how to use the \LaTeX{} environment. Citing \cite{DolphinDSP}. Citing chapter \YAGCD[5]{}.
+Citing YAGCD \YAGCD{} with fancy command.
+
+\begin{codebox}
+    \begin{minted}{cpp}     
+#include <stdio.h>
+
+int main() {
+    printf("%s\n", "Hello World!");
+    return 0;
+}
+    \end{minted}
+\end{codebox}
+
+\noindent Internet link \href{http://www.google.com}{\texttt{Google}}
+
+% see http://tug.ctan.org/tex-archive/macros/latex/contrib/register/register.pdf
+\begin{register}{H}{PI INTSR}{\texttt{0xCC003000}}
+    \label{reg:PIINTSR}
+    \regfieldb{}{15}{17}%
+    \regfieldb{RSWST}{1}{16}%
+    \regfieldb{}{2}{14}%
+    \regfieldb{HSP}{1}{13}%
+    \regfieldb{DEBUG}{1}{12}%
+    \regfieldb{CP}{1}{11}%
+    \regfieldb{PE FINISH}{1}{10}%
+    \regfieldb{PE TOKEN}{1}{9}%
+    \regfieldb{VI}{1}{8}%
+    \regfieldb{MEM}{1}{7}%
+    \regfieldb{DSP}{1}{6}%
+    \regfieldb{AI}{1}{5}%
+    \regfieldb{EXI}{1}{4}%
+    \regfieldb{SI}{1}{3}%
+    \regfieldb{DI}{1}{2}%
+    \regfieldb{RSW}{1}{1}%
+    \regfieldb{ERROR}{1}{0}%
+    \regnewline
+    \begin{regdesc}\begin{reglist}[Request~Depth]
+        \item [RSWST] Reset switch state
+        \item [HSP] High Speed Port
+        \item [CP] Command Processor
+    \end{reglist}\end{regdesc}
+\end{register}
+Referencing stuff like Register \ref{reg:PIINTSR} for our own stuff. I gotta figure out how to set that up to work with \mintinline{latex}{\Cref}, so that we don't have to type out \quoted{Register} every time.

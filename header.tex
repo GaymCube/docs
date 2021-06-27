@@ -1,0 +1,70 @@
+\documentclass[11pt, headseplin, oneside]{book}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage{minted}  % code block
+\setminted{
+	framesep=10pt,
+	linenos
+}
+\usepackage{tcolorbox}  % boxes around code
+\usepackage{graphicx}
+\usepackage{float}	% figure placement
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[inline]{enumitem}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{cleveref}  % referencing our own stuff
+\usepackage[toc,page]{appendix}
+\usepackage{register}  % register diagrams
+\setlength{\regWidth}{\textwidth}
+\usepackage{ifthen}  % conditionals for cooler commands
+\usepackage{xspace}  % proper space handling for normal text commands
+
+\usepackage{geometry}
+\geometry{
+	paper=a4paper, % Change to letterpaper for US letter
+	inner=2.5cm, % Inner margin
+	outer=3.8cm, % Outer margin
+	bindingoffset= 0.5cm, % Binding offset
+	top=3cm, % Top margin
+	bottom=2cm, % Bottom margin
+	%showframe, % Uncomment to show how the type block is set on the page
+	headheight = 14pt
+}
+
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE]{\thepage}
+\fancyhead[RE]{\leftmark}
+\fancyhead[LO]{\rightmark}
+\fancyhead[RO]{\thepage}
+
+% easy quoting command
+\newcommand{\quoted}[1]{``#1''}
+
+% easier citing commands
+\newcommand{\YAGCD}[1][]{%
+	\ifthenelse{ \equal{#1}{} }%
+		{\cite{YAGCD}}%
+		{\cite[Chapter #1]{YAGCD}}%
+}
+
+% boxed environment to use minted in for cleaner code
+\newenvironment{codebox}{
+	\begin{tcolorbox}[
+		boxrule=1pt,
+		colback=gray!2,
+		boxsep=1pt,
+		left=5pt,
+		outer arc=0pt,
+		arc=0pt,
+		grow to left by=-15pt
+	]
+}
+{
+	\end{tcolorbox}
+}

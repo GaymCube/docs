@@ -1,0 +1,30 @@
+\input{header}
+
+% comment out files here in order to not include them in the main output
+% this is mainly useful for when the doc becomes a bit longer, in order to reduce compile times
+\includeonly{
+    title,
+    example,
+}
+
+\begin{document}
+\pagenumbering{roman}
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\frontmatter
+\include{title}  % basic title page
+\tableofcontents
+\mainmatter
+\include{example}  % include without adding .tex
+
+% in case we ever have appendices
+% \begin{appendix}
+%     
+% \end{appendix}
+
+\bibliographystyle{unsrt}
+\bibliography{bibliography}
+
+\end{document}

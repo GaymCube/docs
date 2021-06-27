@@ -1,0 +1,1 @@
+pdflatex --shell-escape -interaction=nonstopmode -synctex=1 -file-line-error main

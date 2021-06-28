@@ -1,0 +1,38 @@
+\chapter{Files}
+
+\section{The DOL file format}
+The DOL file format is the format of the main executable for both GameCube and Wii games. There is a header in the file describing how the executable is laid out. The file consists of a header, up to 7 code sections and up to 11 data sections. The values in the header are all 32 bit, big endian values. The header is structured as follows: \cite[\href{https://wiibrew.org/wiki/DOL}{\texttt{DOL}}]{WiiBrew}
+
+\begin{center}
+    \begin{table}[H]
+        \begin{tabular}{l | l | l | l}
+            Start & End & Length & Description \\
+            \hline\hline
+            \hex{0} & \hex{3} & 4 & Offset to start of text0 \\
+            \hline 
+            \hex{4} & \hex{1b} & 6 * 4 & Offsets for text1 - text6 \\
+            \hline 
+            \hex{1c} & \hex{47} & 11 * 4 & Offsets for data0 - data10 \\
+            \hline 
+            \hex{48} & \hex{4B} & 4	 & Loading address for text0 \\
+            \hline 
+            \hex{4C} & \hex{8F} & 6 * 4 + 11 * 4 & Loading addresses for text1 - text6 and data0 - data10 \\
+            \hline 
+            \hex{90} & \hex{D7} & 7 * 4 + 11 * 4 & Section sizes for text0 - text6 and data0 - data10 \\
+            \hline 
+            \hex{D8} & \hex{DB} & 4	 & BSS address (\quoted{block starting symbol}, section cleared to 0)  \\
+            \hline 
+            \hex{DC} & \hex{DF} & 4	 & BSS size \\
+            \hline
+            \hex{E0} & \hex{E3} & 4	 & Entry point \\
+            \hline 
+            \hex{E4} & \hex{FF} & 	 & Padding \\
+            \hline 
+
+        \end{tabular}
+    \end{table}
+\end{center}
+
+\section{The Apploader}
+
+GameCube games don't come as simple DOL executables, but rather they are disk images. The executable and the data is extracted by the IPL (Internal Program Loader). The IPL reads some data from the disk, information on where the relevant apploader functions are, and then repeatedly calls these until all the data is read.

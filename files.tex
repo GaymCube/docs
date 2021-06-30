@@ -5,28 +5,28 @@ The DOL file format is the format of the main executable for both GameCube and W
 
 \begin{center}
     \begin{table}[H]
-        \begin{tabular}{l | l | l | l}
-            Start & End & Length & Description \\
+        \begin{tabular}{l | l | p{0.6\textwidth}}
+            Start & Length & Description \\
             \hline\hline
-            \hex{0} & \hex{3} & 4 & Offset to start of text0 \\
+            \hex{0} & \hex{4} & Offset to start of text0 \\
             \hline 
-            \hex{4} & \hex{1b} & 6 * 4 & Offsets for text1 - text6 \\
+            \hex{4} & 6 * \hex{4} & Offsets for text1 - text6 \\
             \hline 
-            \hex{1c} & \hex{47} & 11 * 4 & Offsets for data0 - data10 \\
+            \hex{1c} & 11 * \hex{4} & Offsets for data0 - data10 \\
             \hline 
-            \hex{48} & \hex{4B} & 4	 & Loading address for text0 \\
+            \hex{48} & \hex{4}	 & Loading address for text0 \\
             \hline 
-            \hex{4C} & \hex{8F} & 6 * 4 + 11 * 4 & Loading addresses for text1 - text6 and data0 - data10 \\
+            \hex{4C} & 6 * \hex{4} + 11 * \hex{4} & Loading addresses for text1 - text6 and data0 - data10 \\
             \hline 
-            \hex{90} & \hex{D7} & 7 * 4 + 11 * 4 & Section sizes for text0 - text6 and data0 - data10 \\
+            \hex{90} & 7 * \hex{4} + 11 * \hex{4} & Section sizes for text0 - text6 and data0 - data10 \\
             \hline 
-            \hex{D8} & \hex{DB} & 4	 & BSS address (\quoted{block starting symbol}, section cleared to 0)  \\
+            \hex{D8} & \hex{4}& BSS address (\quoted{block starting symbol}, section cleared to 0)  \\
             \hline 
-            \hex{DC} & \hex{DF} & 4	 & BSS size \\
+            \hex{DC} & \hex{4}	 & BSS size \\
             \hline
-            \hex{E0} & \hex{E3} & 4	 & Entry point \\
+            \hex{E0} & \hex{4}	 & Entry point \\
             \hline 
-            \hex{E4} & \hex{FF} & 	 & Padding \\
+            \hex{E4} & 	 & Padding \\
             \hline 
 
         \end{tabular}
